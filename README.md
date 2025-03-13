@@ -1,6 +1,12 @@
 ## Running app
-1. Run docker compose up -d
-2. Run npm run start
+1. Create .env file with 
+
+MONGODB_URI=mongodb://admin:password@localhost:27017/trading?authSource=admin
+
+SYMBOL=BTCUSDT
+
+2. Run docker compose up -d
+3. Run npm run start
 
 ### "Write some sample code to demonstrate the usage of your trading bot."
 I understood this as an example of how the strategy is used, so in main.ts, the bot runs every 5 seconds via setInterval(), continuously analyzing the market and executing trades as a demonstration.

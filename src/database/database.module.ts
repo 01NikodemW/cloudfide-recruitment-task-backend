@@ -9,12 +9,6 @@ const MONGODB_URI =
   'mongodb://admin:password@localhost:27017/trading?authSource=admin';
 
 @Module({
-  imports: [
-    MongooseModule.forRoot(MONGODB_URI, {
-      authSource: 'admin',
-      user: process.env.MONGO_INITDB_ROOT_USERNAME || 'admin',
-      pass: process.env.MONGO_INITDB_ROOT_PASSWORD || 'password',
-    }),
-  ],
+  imports: [MongooseModule.forRoot(MONGODB_URI)],
 })
 export class DatabaseModule {}
