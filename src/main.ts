@@ -12,7 +12,6 @@ async function bootstrap() {
     .setTitle('Trading Bot API')
     .setDescription('API for Binance trading bot')
     .setVersion('1.0')
-    .addTag('trading')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
@@ -21,7 +20,6 @@ async function bootstrap() {
   app.enableShutdownHooks();
 
   await app.listen(3000);
-  console.log(`🚀 Trading Bot API is running on http://localhost:3000/api`);
 
   const strategyService = app.get(StrategyService);
   setInterval(() => {

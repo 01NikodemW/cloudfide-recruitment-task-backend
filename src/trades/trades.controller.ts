@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Post } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { TradesService } from './trades.service';
 import { ApiTags, ApiOperation, ApiParam } from '@nestjs/swagger';
 
@@ -7,7 +7,7 @@ import { ApiTags, ApiOperation, ApiParam } from '@nestjs/swagger';
 export class TradesController {
   constructor(private readonly tradesService: TradesService) {}
 
-  @Post(':symbol')
+  @Get('fetch/:symbol')
   @ApiOperation({ summary: 'Fetch and store recent trades' })
   @ApiParam({ name: 'symbol', type: String, example: 'BTCUSDT' })
   async fetchAndStoreTrades(@Param('symbol') symbol: string) {

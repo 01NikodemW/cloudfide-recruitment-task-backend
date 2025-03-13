@@ -5,13 +5,13 @@ services:
     container_name: mongodb-container
     restart: always
     ports:
-      - "27017:27017" # Expose MongoDB on localhost
+      - "27017:27017" 
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: password
     volumes:
       - mongodb_data:/data/db
-    command: mongod --bind_ip_all # Allow external access
+    command: mongod --bind_ip_all
 
 volumes:
   mongodb_data:

@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Trade } from './schemas/trade.schema';
 import { BinanceService } from '../binance/binance.service';
+import { BinanceTrade } from '../binance/interfaces/binance-trade.interface';
 
 @Injectable()
 export class TradesService {
@@ -12,7 +13,8 @@ export class TradesService {
   ) {}
 
   async fetchAndStoreTrades(symbol: string): Promise<void> {
-    const trades = await this.binanceService.fetchRecentTrades(symbol);
+    const trades: BinanceTrade[] =
+      await this.binanceService.fetchRecentTrades(symbol);
     const tradeData = trades.map((t) => ({
       symbol,
       price: parseFloat(t.price),
